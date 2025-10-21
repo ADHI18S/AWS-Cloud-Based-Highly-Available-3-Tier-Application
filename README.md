@@ -14,11 +14,10 @@ A modern, scalable, and secure web application that allows students to securely 
 
 ![3-tier architecture on AWS](<3 trier  (1).png>)
 
+![preview](<Screenshot 2025-10-21 183713.png>)
+
 
 ## 🏗️ Project Architecture
-
-architecture diagram here -->
-![3-tier architecture on AWS](<3 trier  (1).png>)
 
 - **Web Tier:** NGINX EC2 ASG in public subnets, external ALB
 - **App Tier:** Flask API EC2 ASG in private subnets, internal ALB
