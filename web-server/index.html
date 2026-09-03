@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chennai University</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <div class="container">
+      
+      <!-- Header -->
+      <header class="site-header" role="banner">
+        <div class="brand">
+          <div class="titles">
+            <h1 id="collegeName">Chennai University</h1>
+            <p class="muted"> <strong>Result 2025</strong></p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Search Form -->
+      <section class="card search-card" aria-labelledby="searchTitle">
+        <h2 id="searchTitle" class="card-title">Check Your Result</h2>
+        <p class="muted small">Enter your Registration Number and Date of Birth</p>
+
+        <form id="checkForm" class="form" onsubmit="return false;" autocomplete="off" novalidate>
+          <div class="form-row">
+            <label for="regNo">Registration Number</label>
+            <input id="regNo" type="text" placeholder="e.g. CSE2025001" required aria-required="true" />
+          </div>
+          <div class="form-row">
+            <label for="dob">Date of Birth</label>
+            <input id="dob" type="date" required aria-required="true" />
+          </div>
+          <div class="form-actions">
+            <button id="checkBtn" class="btn primary" type="button" onclick="submitForm()">Check Result</button>
+            <button id="clearBtn" class="btn ghost" type="button" onclick="clearForm()">Clear</button>
+          </div>
+        </form>
+        <div id="messageArea" class="message" aria-live="polite"></div>
+      </section>
+
+      <!-- Result Area -->
+      <section id="resultArea" class="card result-card" aria-live="polite" hidden>
+        <!-- Rendered by script.js -->
+      </section>
+
+      <!-- Footer -->
+        <center>
+           <footer class="footer muted">
+          © Chennai University — Result Portal 2025
+           </footer>
+        </center>
+    </div>
+  </main>
+  <script src="script.js" defer></script>
+</body>
+</html>
