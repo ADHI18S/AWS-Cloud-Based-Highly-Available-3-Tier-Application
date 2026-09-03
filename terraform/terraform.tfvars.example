@@ -1,0 +1,19 @@
+aws_region               = "us-east-2"
+project_name             = "college-results"
+environment              = "prod"
+vpc_cidr                 = "10.0.0.0/16"
+availability_zones       = ["us-east-2a", "us-east-2b"]
+public_subnet_cidrs      = ["10.0.1.0/24", "10.0.2.0/24"]
+private_app_subnet_cidrs = ["10.0.3.0/24", "10.0.4.0/24"]
+private_db_subnet_cidrs  = ["10.0.5.0/24", "10.0.6.0/24"]
+
+# Minimal Single NAT Gateway (in Public-Web-2a)
+single_nat_gateway = true
+
+admin_ip_cidr = "YOUR_ADMIN_IP/32"
+
+# Minimal Cost RDS Database Configuration
+db_username       = "collegeuser"
+db_password       = "CHANGE_ME_STRONG_PASSWORD_123!"
+db_instance_class = "db.t3.micro"
+db_multi_az       = false

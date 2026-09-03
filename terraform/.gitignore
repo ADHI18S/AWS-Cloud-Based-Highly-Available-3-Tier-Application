@@ -1,0 +1,17 @@
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude sensitive tfvars containing actual production credentials
+terraform.tfvars
+
+# Ignore CLI binaries and archive zips
+*.zip
+aws/
