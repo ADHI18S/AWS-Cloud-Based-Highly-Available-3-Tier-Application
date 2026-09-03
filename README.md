@@ -54,16 +54,6 @@ Traditional monolithic application deployments on single servers suffer from sev
 5. **Application Tier Auto Scaling Group**: Maintains 2 Flask/Gunicorn EC2 instances running Python business logic on port 8000 in private app subnets.
 6. **Amazon RDS MySQL Multi-AZ**: Primary database instance deployed in `Private-DB-2b` with a synchronous standby instance in `Private-DB-2a` for automatic database failover.
 
-### Architecture Diagram vs Actual Implementation
-
-| Feature | Reference Diagram | Actual Implementation | Notes |
-| :--- | :--- | :--- | :--- |
-| **AWS Region** | `us-east-2` | `us-east-2` | Fully Matched |
-| **DNS Domain** | `santhosh.dpdns.org` | `adhithyan.dpdns.org` | Environment domain customization |
-| **Web ASG Size** | 3 Instances | Min: 2, Desired: 2, Max: 2 | Optimized for minimal cost while preserving Multi-AZ HA |
-| **App ASG Size** | 3 Instances | Min: 2, Desired: 2, Max: 2 | Optimized for minimal cost while preserving Multi-AZ HA |
-| **RDS Deployment** | Primary + Standby | Multi-AZ MySQL 8.0 | Fully Matched |
-
 ---
 
 ## 4. Architecture Flow
@@ -210,7 +200,10 @@ DB-SG (sg-05b6663e28d0bd0e)
 
 ---
 
-## 10. Implementation Console Proof Screenshots
+## 10. Implementation Console & Live Interface Proof Screenshots
+
+> 📸 Screenshot: Live Application Interface (`https://adhithyan.dpdns.org`)
+> ![College Exam Result Website Interface](docs/images/exam-result-website-ui.png)
 
 > 📸 Screenshot: VPC Resource Map (`college-results-prod-vpc`)
 > ![VPC Resource Map](docs/images/vpc-resource-map.png)
