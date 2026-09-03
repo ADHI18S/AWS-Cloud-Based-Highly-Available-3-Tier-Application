@@ -1,5 +1,5 @@
-// script.js - separated JS
-// Keeps the same API contract: POST /check_result with {registration_number, date_of_birth}
+// script.js - Client API integration & dynamic UI rendering
+// Keeps exact API contract: POST /api/check_result (or /check_result fallback) with {registration_number, date_of_birth}
 
 function formatDate(dstr){
   if(!dstr) return '';
@@ -60,11 +60,21 @@ async function submitForm(){
   showMessage('Looking up your result...');
 
   try {
-    const res = await fetch('/check_result', {
+    const payload = JSON.stringify({ registration_number: regNo, date_of_birth: dob });
+    let res = await fetch('/api/check_result', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ registration_number: regNo, date_of_birth: dob })
+      body: payload
     });
+
+    // Fallback if proxy path strips /api
+    if(res.status === 404){
+      res = await fetch('/check_result', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: payload
+      });
+    }
 
     const data = await res.json();
     btn.disabled = false;
@@ -82,7 +92,7 @@ async function submitForm(){
     btn.disabled = false;
     btn.textContent = 'Check Result';
     showMessage('Network or server error. Please try again later.', 'error');
-    console.error(err);
+    console.error('API Fetch Error:', err);
   }
 }
 
